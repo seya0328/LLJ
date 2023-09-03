@@ -1,0 +1,27 @@
+<h1>子供のプロフィール登録</h1>
+<%= form_with model: @child, url: '/children', methood: :post do |f| %>
+  <h4>名前</h4>
+  <%= f.text_field :name %>
+  
+  <h4>カナ</h4>
+  <%= f.text_field :name_kana %>
+  
+  <h4>誕生日</h4>
+  <%= f.text_field :birthday %>
+  
+  <h4>性別</h4>
+  <%= f.text_field :gender %>
+	
+  <h4>性格・特徴</h4>
+  <%= f.text_area :personality %>
+  
+  <h4>画像</h4>
+  <% if post.image.attached? %>
+  <%= image_tag post.image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "200x200" %>
+  <% end %>
+  
+	
+  <%= f.submit '登録する' %>
+<% end %>

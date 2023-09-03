@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   
   resources :children, only: [:new, :create, :index, :show, :edit, :update]
   
-  resources :posts, only: [ :create, :index, :show, :edit, :update, :destroy]
+  resources :posts, only: [ :new, :create, :index, :show, :edit, :update, :destroy]
 end
