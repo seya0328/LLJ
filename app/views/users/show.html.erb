@@ -1,18 +1,19 @@
 <h1>子供のプロフィール</h1>
+<% @user.children.each do |child| %>
 <h2>名前</h2>
-<p><%= @child.name %></p>
+<p><%= child.name %></p>
 
 <h2>カナ</h2>
-<p><%= @child.name_kana %></p>
+<p><%= child.name_kana %></p>
 
 <h2>誕生日</h2>
-<p><%= @child.birthday %></p>
+<p><%= child.birthday %></p>
 
 <h2>性別</h2>
-<p><%= @child.gender %></p>
+<p><%= child.gender %></p>
 
 <h2>性格・特徴</h2>
-<p><%= @child.personality %></p>
-
-<p><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p>
+<p><%= child.personality %></p>
+<% end %>
+<p><%#= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p>
   
