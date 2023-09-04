@@ -1,5 +1,11 @@
 class UsersController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update]
+  def new
+    @user = User.new
+  end
+  def create
+    @user = User.find(params[:id]) 
+  end
   def show
      @user = User.find(params[:id]) 
      @childs = @user.childs
@@ -24,10 +30,9 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    user = User.find(params[:id])  # データ（レコード）を1件取得
-    user.destroy  # データ（レコード）を削除
-    redirect_to '/posts'  # 投稿一覧画面へリダイレクト  
-  end
+    user = User.find(params[:id])  
+    user.destroy  
+    redirect_to '/posts'  
   end
   
   private

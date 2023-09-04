@@ -13,4 +13,6 @@
 
 <h2>性格・特徴</h2>
 <p><%= @child.personality %></p>
+
+<p><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p>
   
