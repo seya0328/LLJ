@@ -1,7 +1,7 @@
 class Child < ApplicationRecord
   belongs_to :user
   has_one_attached :image
-  validates :title, presence: true
+  # validates :title, presence: true
   
   def get_image(width, height)
     unless image.attached?

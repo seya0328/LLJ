@@ -16,11 +16,12 @@
   <%= f.text_area :personality %>
   
   <h4>画像</h4>
-  <% if post.image.attached? %>
-  <%= image_tag post.image, size: "200x200" %>
-  <% else %>
-    <%= image_tag 'no_image', size: "200x200" %>
-  <% end %>
+  <%= f.file_field :image, accept: "image/*" %>
+  <%# if post.image.attached? %>
+  <%#= image_tag post.image, size: "200x200" %>
+  <%#else %>
+    <%#= image_tag 'no_image', size: "200x200" %>
+  <%# end %>
   
 	
   <%= f.submit '登録する' %>

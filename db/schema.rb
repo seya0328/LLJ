@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2023_09_04_030207) do
 
   create_table "children", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "child_name", null: false
+    t.string "name", null: false
     t.string "name_kana", null: false
     t.string "birthday", null: false
     t.string "gender", null: false

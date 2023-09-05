@@ -13,6 +13,7 @@ class ChildrenController < ApplicationController
   end
     
   def create
+    @child = Child.new
     post = Child.new(child_params)
     post.save
     # 後で投稿詳細に変更する↓
@@ -35,6 +36,6 @@ class ChildrenController < ApplicationController
   
   private
   def child_params
-    params.require(:child).permit(:name, :name_kana, :birthday, :gender, :personality)
+    params.require(:child).permit(:name, :name_kana, :birthday, :gender, :personality, :image)
   end
 end
