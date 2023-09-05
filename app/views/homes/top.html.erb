@@ -1,32 +1,16 @@
 <div class="container">
-  <div class="row mt-5"></div>
+  <div class="row mt-5">
     <div class="col-9"></div>
       <h1>Little Life Juane</h1>
       <h3>〜愛しい我が子の成長記録〜</h3>
-        <div class="row", style='margin: 0 auto;'></div> 
-          <div class="row">
-          <div class="col"></div>
-            <div class="col-6">
-              <p style="text-align: center;">
-                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <div class="field">
-                <%= f.label :email, "メールアドレス" %>
-                <%= f.email_field :email, autofocus: true, autocomplete: "e-mail" %>
-              </div>
-              <br>
-              <div class="field">
-                <%= f.label :password, "パスワード" %>
-                <%= f.password_field :password, autocomplete: "current-password" %>
-              </div>
-              <br>
-
-            <div class="actions">
-              <%= f.submit "ログイン" %>
-          </div>
-              <% end %>
-
-          <%= render "admin/shared/links" %>
+      <div class="btn-wrapper col-10 mx-auto">
+        <div class="row">
+        <%= link_to 'ログイン', '/users/sign_in', class: 'btn btn-info btn-sm btn-block mb-3 sign_up' %>
+        </div>
+        <div class="row">
+          <%= link_to '新規会員登録', '/users/sign_up', class: 'btn btn-success btn-sm btn-block sign_up' %>
+        </div>
       </div>
-    <div class="col"></div>
+    </div>
   </div>
 </div>
