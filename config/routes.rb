@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   get '/user/:user_id/check' => 'users#check', as: 'check'
   
   resources :children, only: [:new, :create, :index, :show, :edit, :update]
-  
+  get '/user_id/childs/:id' => 'children#show'
   resources :posts, only: [ :new, :create, :index, :show, :edit, :update, :destroy]
 end

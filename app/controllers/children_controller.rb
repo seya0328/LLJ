@@ -2,10 +2,11 @@ class ChildrenController < ApplicationController
   def index
     @chilren = Child.all
     @child = Child.new
+    
   end
   
   def show
-     @child = Childt.find(params[:id]) 
+     @child = Child.find(params[:id]) 
   end
 
   def new
@@ -17,7 +18,8 @@ class ChildrenController < ApplicationController
     post = Child.new(child_params)
     post.save
     # 後で投稿詳細に変更する↓
-    redirect_to 'root'
+    redirect_to children_path
+  
   end
   
   def edit
@@ -36,6 +38,6 @@ class ChildrenController < ApplicationController
   
   private
   def child_params
-    params.require(:child).permit(:name, :name_kana, :birthday, :gender, :personality, :image)
+    params.require(:child).permit(:name, :name_kana, :birthday, :gender, :personality, :profile_image)
   end
 end
