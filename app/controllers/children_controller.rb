@@ -6,7 +6,7 @@ class ChildrenController < ApplicationController
   end
   
   def show
-     @child = Child.find(params[:id]) 
+    @child = Child.find(params[:id]) 
   end
 
   def new
@@ -14,11 +14,10 @@ class ChildrenController < ApplicationController
   end
     
   def create
-    @child = Child.new
-    post = Child.new(child_params)
-    post.save
-    # 後で投稿詳細に変更する↓
-    redirect_to children_path
+    @child = Child.new(child_params)
+    @child.user_id = current_user.id
+    @child.save!
+    redirect_to user_child_path(current_user,@child)
   
   end
   

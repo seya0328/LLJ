@@ -8,8 +8,9 @@ class UsersController < ApplicationController
   end
   def show
      @user = User.find(params[:id]) 
-     @posts =  @posts = Post.all
-     
+     @posts = Post.all
+     @chilren = Child.all
+     @child = Child.new
   end
   
   def edit
