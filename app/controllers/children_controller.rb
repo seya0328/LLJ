@@ -23,6 +23,7 @@ class ChildrenController < ApplicationController
   
   def edit
     @child = Child.find(params[:id])
+    @user = @child.user
   end
   
   def update
