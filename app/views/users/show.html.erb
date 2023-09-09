@@ -1,16 +1,14 @@
 <h1>マイページ</h1>
 <h3></h3>
-<% @user.children.each do |children| %>
-  <%= link_to user_children_path(current_user) do %>
-    <%= image_tag @user.children.get_profile_image(100,100) %>
+<% @user.children.each do |child| %>
+  <%= link_to user_child_path(current_user,child.id) do %>
+    <%= image_tag child.get_profile_image(100,100) %>
   <% end %>
-  <%= link_to @user.children.name, user_child_path(@child.id) %>
+  <%= link_to child.name, user_child_path(current_user,child.id) %>
 <% end %>
 <p><%#= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p>
   
   
 <h3>投稿一覧</h3>
-  <% @posts.each do |posts| %>
-    <% link_to posts.title, post_path(posts.id) %>
-  <% end %>
+  
 <h3>いいね一覧</h3>

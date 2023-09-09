@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(version: 2023_09_04_030207) do
   end
 
   create_table "posts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "child_id"
     t.string "title", null: false
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
