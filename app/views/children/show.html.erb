@@ -20,7 +20,7 @@
 <h2>性格・特徴</h2>
 <p><%= @child.personality %></p>
 
-<%= form_with model: @post,url: new_post_path(current_user,@child)do |f| %>
+<%= form_with model: @post,url: post_new_path(current_user)do |f| %>
   <%= f.submit '投稿する' %>
 <% end %>
 
