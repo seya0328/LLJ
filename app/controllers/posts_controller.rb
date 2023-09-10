@@ -3,15 +3,18 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @child = Child.find(params[:id])
+    
   end
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save
+    @post.child_id = params[:id]
+    #@post.save
     if @post.save
       flash[:notice] = "投稿完了."
       redirect_to post_path(@post.id)
     else
+      #byebug
       @posts = Post.all
       render :index
     end
@@ -25,6 +28,7 @@ class PostsController < ApplicationController
   
   def show
      @post = Post.find(params[:id]) 
+     @child = @post.child
      @post_comment = PostComment.new
   end
 
@@ -46,9 +50,10 @@ class PostsController < ApplicationController
   
   
   def destroy
-    post = Post.find(params[:id])
-    post.destroy
-    redirect_to '/posts'
+    @post = Post.find(params[:post_id])
+    @user = @post.user
+    @post.destroy                      #postのidを渡して削除
+    redirect_to user_child_path(params[:id]) #リダイレクトする際、childのidを指定してshowにとぶ
   end
   
   def satch
@@ -56,7 +61,7 @@ class PostsController < ApplicationController
   
   private
   def post_params
-    params.require(:post).permit(:title, :content, :user_id, :image, :is_matching_login_user)
+    params.require(:post).permit(:title, :content, :user_id, :child_id, :image, :is_matching_login_user)
   end
   def is_matching_login_user
     post = Post.find(params[:id])
