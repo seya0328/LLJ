@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h1>投稿編集</h1>
+      <h1>投稿詳細画面</h1>
       
       <% if @post.errors.any? %>
       <%= @post.errors.count %>error prohibited this obj from being saved:
@@ -14,21 +14,21 @@
       
       <%= form_with model: @post do |f| %>
       <h4>タイトル</h4>
-      <%= f.text_field :title %>
+      <P><%= @post.title %></P>
     
       <h4>内容</h4>
-      <%= f.text_area :content %><br>
+      <p><%= @post.content %></p><br>
       
       <p>画像</p>
-      <%= image_tag @post.image, size: "300x300" %>
-  
-      <%= f.submit '投稿する', class: "btn btn-success" %>
+      <%= image_tag @post.get_profile_image(300, 300) %><br>
+      <br>
+      <%= link_to '戻る', user_path(current_user), class: "btn btn-success" %>
      
       <% end %>
       <br>
-      <%= link_to "詳細画面", post_path(@post.id) %>
+      <%= link_to "編集する", edit_post_path(@post.id) %>
       
-      <%= link_to "戻る", posts_path %>
+      <%= link_to "削除する", post_path %>
       <div>
         <p>コメント件数：<%= @post.post_comments.count %></p>
         <% @post.post_comments.each do |post_comment| %>

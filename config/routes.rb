@@ -11,8 +11,8 @@ Rails.application.routes.draw do
       # resources :post_comments, only: [:create, :destroy]
   end
   get '/user/:user_id/check' => 'users#check', as: 'check'
-  get '/children/:id/post/:id' => 'posts#new', as: 'post/:id'
-  post 'children/:idpost' => 'posts#create',as: 'post'
+  get '/children/:id/posts/new' => 'posts#new', as: 'new_post'
+  post 'children/:id/posts' => 'posts#create',as: 'children_post'
   # get '/user_id/childs/:id' => 'children#show'
   
 end

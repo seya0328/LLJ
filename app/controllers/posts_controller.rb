@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update]
   def new
     @post = Post.new
+    @child = Child.find(params[:id])
   end
   def create
     @post = Post.new(post_params)
