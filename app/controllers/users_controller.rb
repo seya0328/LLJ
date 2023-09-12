@@ -11,6 +11,7 @@ class UsersController < ApplicationController
      @posts = Post.all
      @chilren = Child.all
      @child = Child.new
+     @child = Child.find(params[:id]) 
   end
   
   def edit

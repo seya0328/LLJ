@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/children/:id/posts/new' => 'posts#new', as: 'new_post'
   post 'children/:id/posts' => 'posts#create',as: 'children_post'
   delete 'childen/:id/posts/:post_id' => 'posts#destroy',as: 'delete_children_post'
-  
+  get 'childen/:id/posts/:post_id' => 'posts#show',as: 'show_post'
   # get '/user_id/childs/:id' => 'children#show'
   
 end

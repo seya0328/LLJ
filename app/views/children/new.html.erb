@@ -17,12 +17,12 @@
   
   <h4>画像</h4>
   <%= f.file_field :image, accept: "image/*" %>
-  <%# if post.image.attached? %>
-  <%#= image_tag post.image, size: "200x200" %>
-  <%#else %>
-    <%#= image_tag 'no_image', size: "200x200" %>
-  <%# end %>
+  <% if post.image.attached? %>
+  <%= image_tag post.image, size: "200x200" %>
+  <%else %>
+    <%= image_tag 'no_image', size: "200x200" %>
+  <% end %>
   
-	
+	<%= link_to '戻る', user_path(current_user), class: "btn btn-success" %>
   <%= f.submit '変更する' %>
 <% end %>

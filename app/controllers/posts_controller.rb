@@ -61,7 +61,7 @@ class PostsController < ApplicationController
   
   private
   def post_params
-    params.require(:post).permit(:title, :content, :user_id, :child_id, :image, :is_matching_login_user)
+    params.require(:post).permit(:date, :title, :content, :user_id, :child_id, :image, :is_matching_login_user)
   end
   def is_matching_login_user
     post = Post.find(params[:id])
