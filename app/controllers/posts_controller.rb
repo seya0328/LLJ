@@ -19,11 +19,12 @@ class PostsController < ApplicationController
       render :index
     end
     # 後で投稿詳細に変更する↓
-    #redirect_to 'root'
+    redirect_to show_post_path(@child,@post)
   end
   def index
     @posts = Post.all
     @post = Post.new
+    
   end
   
   def show
@@ -61,7 +62,7 @@ class PostsController < ApplicationController
   
   private
   def post_params
-    params.require(:post).permit(:date, :title, :content, :user_id, :child_id, :image, :is_matching_login_user)
+    params.require(:post).permit(:date, :title, :content, :user_id, :child_id, :image, :is_matching_login_user, :tag_ids)
   end
   def is_matching_login_user
     post = Post.find(params[:id])

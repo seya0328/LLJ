@@ -1,6 +1,9 @@
 <div class="container">
   <h1>マイページ</h1>
   <%= link_to '＋追加', new_post_path, class: "btn btn-secondary" %>
+  <% @posts.tags.each do |tag| %>
+    <span><%= tag.name %></span>
+<% end %>
   <div class="row">
     <!--<div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">-->
     <% @user.children.each do |child| %>
