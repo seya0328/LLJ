@@ -12,6 +12,7 @@ class UsersController < ApplicationController
      @chilren = Child.all
      @child = Child.new
      @child = Child.find(params[:id]) 
+     @tag = 
   end
   
   def edit

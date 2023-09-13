@@ -1,7 +1,7 @@
 <div class="container">
   <h1>マイページ</h1>
   <%= link_to '＋追加', new_post_path, class: "btn btn-secondary" %>
-  <% @posts.tags.each do |tag| %>
+  <% @posts.@tag.each do |tag| %>
     <span><%= tag.name %></span>
 <% end %>
   <div class="row">
