@@ -30,6 +30,7 @@
       <%= link_to "編集する", edit_post_path(@post.id) %>
       
       <%= link_to "削除する", delete_children_post_path(@child, @post), method: :delete, data: {confirm: "本当に削除しますか？"} %>
+      
       <div>
         <p>コメント件数：<%= @post.post_comments.count %></p>
         <% @post.post_comments.each do |post_comment| %>
@@ -40,17 +41,17 @@
             <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %>
           <% end %>
           <% if @post.favorited_by?(current_user) %>
-    <p>
-      <%= link_to post_favorites_path(@post), method: :delete do %>
-        ♥<%= @post.favorites.count %> いいね
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to post_favorites_path(@post), method: :post do %>
-        ♡<%= @post.favorites.count %> いいね
-      <% end %>
-    </p>
+          <p>
+          <%= link_to post_favorites_path(@post), method: :delete do %>
+          ♥<%= @post.favorites.count %> いいね
+          <% end %>
+          </p>
+          <% else %>
+          <p>
+          <%= link_to post_favorites_path(@post), method: :post do %>
+          ♡<%= @post.favorites.count %> いいね
+          <% end %>
+        </p>
         <% end %>
       </div>
       <div>
@@ -62,3 +63,4 @@
     </div>
   </div>
 </div>
+<% end %>

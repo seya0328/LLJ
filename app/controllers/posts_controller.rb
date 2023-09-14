@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @child = Child.find(params[:id])
-    
+    @tags = PostTag.all
   end
   def create
     @post = Post.new(post_params)
@@ -12,14 +12,13 @@ class PostsController < ApplicationController
     #@post.save
     if @post.save
       flash[:notice] = "投稿完了."
-      redirect_to post_path(@post.id)
+      redirect_to post_path(@post)
     else
       #byebug
       @posts = Post.all
       render :index
     end
-    # 後で投稿詳細に変更する↓
-    redirect_to show_post_path(@child,@post)
+    # redirect_to 'childen/:id/posts/:post_id'
   end
   def index
     @posts = Post.all
