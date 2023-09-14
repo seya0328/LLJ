@@ -8,11 +8,21 @@ class UsersController < ApplicationController
   end
   def show
      @user = User.find(params[:id]) 
-     @posts = Post.all
+     @posts = @user.posts
      @chilren = Child.all
      @child = Child.new
      @child = Child.find(params[:id]) 
      @tags = PostTag.all
+  end
+  
+  def search
+    @user = User.find(params[:id])
+    @posts = @user.posts.search(params[:keyword])
+    @chilren = Child.all
+    @child = Child.new
+    @child = Child.find(params[:id]) 
+    @tags = PostTag.all
+    render :show
   end
   
   def edit

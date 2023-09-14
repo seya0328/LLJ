@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resources :post_comments, only: [:create, :destroy]
   end
   resources :users, only: [:new, :create, :show, :edit, :update, :destroy] do
+    member do
+      get :search
+    end
     resources :children, only: [:new, :create, :show, :edit, :update]
       # resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] 
       # resources :post_comments, only: [:create, :destroy]
