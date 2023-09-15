@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 create!(
-  email: "a@a",## 任意のメールアドレス,
-  password: "aaaaaa" ## 任意のパスワード
+  email: "s@s",## 任意のメールアドレス,
+  password: "ssssss" ## 任意のパスワード
 )
 
 Tag.create([

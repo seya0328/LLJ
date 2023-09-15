@@ -3,12 +3,13 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @child = Child.find(params[:id])
-    @tags = PostTag.all
+    @tags = PostTag.new
   end
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.child_id = params[:id]
+    
     #@post.save
     if @post.save
       flash[:notice] = "投稿完了."

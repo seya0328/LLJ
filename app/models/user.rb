@@ -17,4 +17,9 @@ class User < ApplicationRecord
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
+  
+  def full_name
+     last_name + first_name
+  end
+   
 end

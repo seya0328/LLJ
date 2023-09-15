@@ -2,7 +2,9 @@
   <h1>マイページ</h1>
   <%= form_with url: search_user_path(@user.id), method: :get, local: true do |f| %>
     <%= f.text_field :keyword %>
-    <%= f.submit "検索", class: "btn btn-success" %>
+    <%= f.submit "キーワード検索", class: "btn btn-success" %>
+    <%= f.text_field :tag %>
+    <%= f.submit "タグ検索", class: "btn btn-success" %>
   <% end %>
   <%= link_to '＋追加', new_post_path, class: "btn btn-secondary" %>
   <% @tags.each do |tag| %>
