@@ -24,6 +24,10 @@
       <%= image_tag @post.get_profile_image(300, 300) %><br>
       <br>
       <%= link_to '戻る', user_path(current_user), class: "btn btn-success" %>
+      
+      <p>タグ</p>
+      <%= @post.tag_list.join(',') %><br>
+      <br>
      
       <% end %>
       <br>

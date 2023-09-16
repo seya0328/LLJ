@@ -3,15 +3,18 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @child = Child.find(params[:id])
-    @tags = PostTag.new
+    # @tags = PostTag.new
   end
+  
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.child_id = params[:id]
-    
-    #@post.save
+
     if @post.save
+      # tag = Tag.find_or_create_by(name: params[:post][:tag])
+      # PostTag.create!(tag: tag, post: @post)
+      
       flash[:notice] = "投稿完了."
       redirect_to post_path(@post)
     else
@@ -21,6 +24,7 @@ class PostsController < ApplicationController
     end
     # redirect_to 'childen/:id/posts/:post_id'
   end
+
   def index
     @posts = Post.all
     @post = Post.new
@@ -62,7 +66,7 @@ class PostsController < ApplicationController
   
   private
   def post_params
-    params.require(:post).permit(:date, :title, :content, :user_id, :child_id, :image, :is_matching_login_user, :tag_ids)
+    params.require(:post).permit(:date, :title, :content, :user_id, :child_id, :image, :is_matching_login_user, :tag_list)
   end
   def is_matching_login_user
     post = Post.find(params[:id])
