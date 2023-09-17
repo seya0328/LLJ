@@ -3,6 +3,8 @@
   <%= form_with url: search_user_path(@user.id), method: :get, local: true do |f| %>
     <%= f.text_field :keyword %>
     <%= f.submit "キーワード検索", class: "btn btn-success" %>
+  <% end %>
+  <%= form_with url: search_user_path(@user.id), method: :get, local: true do |f| %>
     <%= f.text_field :tag %>
     <%= f.submit "タグ検索", class: "btn btn-success" %>
   <% end %>
@@ -46,7 +48,7 @@
               <td><%=link_to pst.title, show_post_path(@child,pst.id) %></td>
               <td><%=link_to pst.tag_list.join(','), show_post_path(@child,pst.id) %></td>
               <td><%# byebug %><%#= pst.tags.first&.name %></td>
-              
+              <td><%#= tag_list.name %></td>
               <td><%#= pst.text_field :tag_list, value: pst.tag_list.join(','), class: 'form-control' %><td>
               <%# end %>
             </tr>

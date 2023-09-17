@@ -19,8 +19,14 @@ class UsersController < ApplicationController
   
   def search
     @user = User.find(params[:id])
-
-    posts = @user.posts.search(params[:keyword])
+    if params[:keyword] 
+      posts = @user.posts.search(params[:keyword])
+    elsif params[:tag]
+      #posts = @user.posts.joins(:tags)#.where('tags.name like ?' ,'%'+params[:tag]+'%')
+      posts = @user.posts.tagged_with("#{params[:tag]}")
+    else
+      posts = @user.posts
+    end
     @posts = posts.page(params[:page]).per(5)
     @chilren = Child.all
     @child = Child.new

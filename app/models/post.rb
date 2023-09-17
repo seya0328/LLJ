@@ -5,8 +5,8 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :child
   has_many :post_comments, dependent: :destroy
-  has_many :post_tag
-  has_many :tags, through: :post_tag
+  #has_many :post_tags
+  #has_many :tags, through: :post_tags
   has_many :favorites, dependent: :destroy
   
   def get_profile_image(width, height)
@@ -18,6 +18,10 @@ class Post < ApplicationRecord
   end
   
   def self.search(keyword)
+    where("title LIKE ?", "%#{keyword}%")
+  end
+  
+  def self.tag_search(tag)
     where("title LIKE ?", "%#{keyword}%")
   end
   
