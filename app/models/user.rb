@@ -18,8 +18,11 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
   
-  def full_name
-     last_name + first_name
+  # def active_for_authentication?
+    # super && (is_deleted == false)
+  # end
+  def full_name(user)
+     user.last_name + user.first_name
   end
    
 end
