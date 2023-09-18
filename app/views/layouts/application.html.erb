@@ -13,13 +13,36 @@
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <a class="navbar-brand p-3" href="/"><h1>Little Life Journey</h1></a>
+          <a class="navbar-brand p-3" href="/"><h1>L L J</h1></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
+            <!--#管理者が見るページ-->
+            <% if admin_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "会員一覧", admin_users_index_path, class: 'nav-link text-dark border border-dark rounded mr-5' %>
+            </li>
+            <li class="nav-item"> 
+            <!--admin/posts/comment/index作ったらroot_patth直す-->
+              <%= link_to "コメント履歴一覧", root_path, class: 'nav-link text-dark border border-dark rounded mr-5' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_admin_session_path,method: :delete, class: 'nav-link text-dark border border-dark rounded' %>
+            </li>
+            <!--#会員が見るページ-->
+            <% elsif user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to 'マイページ', user_path, class: 'nav-link text-dark border border-dark rounded mr-5' %>
+            </li>
+            
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: 'nav-link text-dark border border-dark rounded' %>
+            </li>
+            <!--＃管理者でも会員でもない人が見るページなし-->
+            <% end %>            
             </ul>
           </div>
         </div>
