@@ -8,17 +8,15 @@
   <%= f.text_field :last_name,autoforcus: true %>  <%= f.text_field :first_name,autoforcus: true %>
   </div>
   
-  <div class="custom-control custom-radio custom-control-inline">
-  <%#= f.label :gender, '性別' %><br>
-  <%#= f.text_field :gender%>
-    <input type="radio" class="custom-control-input" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-    <label for="inlineRadio1" class="custom-control-label">女性</label>
+  <div>
+  <%= form_with(model: @user, local: true) do |form| %>
+    <%= form.radio_button :gender, :male %>
+    <%= form.label :gender, "男性", {value: :male, style: "display: inline-block;"} %>
+    <%= form.radio_button :gender, :female %>
+    <%= form.label :gender, "女性", {value: :female, style: "display: inline-block;"} %>
+  <% end %>
   </div>
-  <div class="custom-control custom-radio custom-control-inline">
-    <input type="radio" class="custom-control-input" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-    <label for="inlineRadio2" class="custom-control-label">男性</label>
-  </div>
-
+  
   <div class="field">
   <%= f.label :birthday, '生年月日' %><br>
   <%= f.text_field :birthday %>

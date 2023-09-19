@@ -6,10 +6,10 @@ class ApplicationController < ActionController::Base
     
     if current_user
       #flash[:notice] = "Sign in successfully."
-      user_path(resource)  #指定したいパスに変更
+      users_path(resource)  #指定したいパスに変更
     else
       #flash[:notice] = "Welcome! You have signed up successfully."
-      user_path(resource) #指定したいパスに変更
+      new_user_registration_path(resource) #指定したいパスに変更
     end
   end
   

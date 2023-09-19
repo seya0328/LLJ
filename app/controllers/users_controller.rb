@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update]
+  before_action :set_user, only: [:likes]
   def new
     @user = User.new
   end
@@ -35,6 +36,11 @@ class UsersController < ApplicationController
     render :show
   end
   
+  def favorites
+    favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
+    @favorite_posts = Post.find(favorites)
+  end
+  
   def edit
     @user = User.find(params[:id])
   end
@@ -47,7 +53,6 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-    
   end
   
   def check
@@ -61,7 +66,10 @@ class UsersController < ApplicationController
   
   private
   def user_params
-    params.require(:user).permit(:last_name, :first_name, :birthday, :gender)
+    params.require(:user).permit(:last_name, :first_name, :birthday, :gender,:post_id)
+  end
+  def set_user
+    @user = User.find(params[:id])
   end
   
   def is_matching_login_user
