@@ -11,8 +11,8 @@ class UsersController < ApplicationController
      @user = User.find(params[:id]) 
      @posts = @user.posts.page(params[:page]).per(5)
      @chilren = Child.all
-     @child = Child.new
-     @child = Child.find(params[:id]) 
+     @new_child = Child.new
+     @childs = nil
      @tags = PostTag.all
     # @post = Post.all.post(created_at: :desc).limit(4)
      

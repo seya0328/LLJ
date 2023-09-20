@@ -35,7 +35,7 @@
             <!--#会員が見るページ-->
             <% elsif user_signed_in? %>
             <li class="nav-item">
-              <%= link_to 'マイページ', user_path, class: 'nav-link text-dark border border-dark rounded mr-5' %>
+              <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark border border-dark rounded mr-5' %>
             </li>
             
             <li class="nav-item">
