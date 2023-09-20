@@ -1,0 +1,68 @@
+<div class="container">
+  <h1>マイページ</h1>
+  <%= form_with url: search_user_path(@user.id), method: :get, local: true do |f| %>
+    <%= f.text_field :keyword %>
+    <%= f.submit "キーワード検索", class: "btn btn-success" %>
+  <% end %>
+  <%= form_with url: search_user_path(@user.id), method: :get, local: true do |f| %>
+    <%= f.text_field :tag %>
+    <%= f.submit "タグ検索", class: "btn btn-success" %>
+  <% end %>
+  <%= link_to '＋追加', new_post_path, class: "btn btn-secondary" %>
+  <%# @tags.each do |tag| %>
+    <span><%#= tag.name %></span>
+<%# end %>
+  <div class="row">
+    <!--<div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">-->
+    <% @user.children.each do |child| %>
+      <%= link_to user_child_path(current_user,child.id) do %>
+        <div>
+          <%= image_tag child.get_profile_image(100,100) %><br>
+          <%= link_to child.name, user_child_path(current_user,child.id) %>
+        </div>
+      <% end %>
+    <% end %>
+    
+  </div> 
+      
+      
+    <p><%#= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p>
+  <h3>投稿一覧</h3>
+    
+        <table class="table table">
+          <thead>
+            <tr>
+              <th scope="col">日付</th>
+              <th scope="col">タイトル</th>
+              <th scope="col">タグ</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%# byebug %>
+            <% @posts.each do |pst| %>
+            <tr>
+              <%#= link_to show_post_path(@child,pst.id) do %>
+              
+              <td><%=link_to pst.date, show_post_path(@child,pst.id) %></td>
+              <td><%=link_to pst.title, show_post_path(@child,pst.id) %></td>
+              <td><%=link_to pst.tag_list.join(','), show_post_path(@child,pst.id) %></td>
+              <td><%# byebug %><%#= pst.tags.first&.name %></td>
+
+              <td><%#= tag_list.name %></td>
+              <td><%#= pst.text_field :tag_list, value: pst.tag_list.join(','), class: 'form-control' %><td>
+              <%# end %>
+            </tr>
+              
+            <% end %>
+            
+          </tbody>
+        </table>
+       <%= paginate @posts %>
+    
+    
+  
+  <h3>いいね一覧</h3>
+  </div>
+  
+</div>
