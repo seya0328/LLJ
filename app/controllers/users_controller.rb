@@ -12,7 +12,6 @@ class UsersController < ApplicationController
      @posts = @user.posts.page(params[:page]).per(5)
      @chilren = Child.all
      @new_child = Child.new
-     @childs = nil
      @tags = PostTag.all
     # @post = Post.all.post(created_at: :desc).limit(4)
      
