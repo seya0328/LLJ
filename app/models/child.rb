@@ -3,6 +3,7 @@ class Child < ApplicationRecord
   has_many :posts
   has_one_attached :profile_image
   # validates :title, presence: true
+  enum gender: {"male": "male", "female": "female"}
   
   def get_profile_image(width, height)
     unless profile_image.attached?
@@ -11,4 +12,6 @@ class Child < ApplicationRecord
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
+  
+  
 end

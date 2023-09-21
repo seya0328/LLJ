@@ -8,7 +8,7 @@
     <%= f.text_field :tag %>
     <%= f.submit "タグ検索", class: "btn btn-success" %>
   <% end %>
-  <%= link_to '＋追加',user_path, class: "btn btn-secondary" %>
+  <%= link_to '＋追加',new_user_child_path(current_user), class: "btn btn-secondary" %>
   <%# @tags.each do |tag| %>
     <span><%#= tag.name %></span>
 <%# end %>
@@ -64,17 +64,17 @@
       </tr>
     </thead> 
      <tbody>
-    <% @favorites.each do |favorite| %>
+    <%# @favorites.each do |favorite| %>
     <tr><%#= link_to show_post_path(@child,pst.id) do %>
-      <td><%=link_to favorite.pst.date, show_post_path(@child,pst.id) %></td>
-      <td><%=link_to favorite.pst.title, show_post_path(@child,pst.id) %></td>
-      <td><%=link_to favorite.pst.tag_list.join(','), show_post_path(@child,pst.id) %></td>
+      <td><%#=link_to favorite.pst.date, show_post_path(@child,pst.id) %></td>
+      <td><%#=link_to favorite.pst.title, show_post_path(@child,pst.id) %></td>
+      <td><%#=link_to favorite.pst.tag_list.join(','), show_post_path(@child,pst.id) %></td>
       <td><%#= pst.tags.first&.name %></td>
       <td><%#= tag_list.name %></td>
       <td><%#= pst.text_field :tag_list, value: pst.tag_list.join(','), class: 'form-control' %><td>
          <%# end %>
     </tr>
-    <% end %>
+    <%# end %>
             
     </tbody>   
   </table>

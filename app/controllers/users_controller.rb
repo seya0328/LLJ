@@ -13,6 +13,7 @@ class UsersController < ApplicationController
      @chilren = Child.all
      @new_child = Child.new
      @tags = PostTag.all
+     #@favorites = Post.where()
     # @post = Post.all.post(created_at: :desc).limit(4)
      
   end

@@ -58,3 +58,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'kaminari'
 gem 'acts-as-taggable-on', '~> 9.0'
+gem 'rails-i18n'
