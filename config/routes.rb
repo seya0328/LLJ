@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   end
 end
   get '/users/:user_id/check' => 'users#check', as: 'check'
+  patch  '/users/:user_id/withdraw' => 'users#withdraw'
   get '/children/:id/posts/new' => 'posts#new', as: 'new_post'
   post 'children/:id/posts' => 'posts#create',as: 'children_post'
   delete 'childen/:id/posts/:post_id' => 'posts#destroy',as: 'delete_children_post'
