@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id]) 
   end
   def show
-     @user = User.find(params[:id]) 
+     @user = User.find(params[:id])
      @posts = @user.posts.page(params[:page]).per(5)
      @chilren = Child.all
      @new_child = Child.new

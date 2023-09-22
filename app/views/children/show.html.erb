@@ -24,7 +24,7 @@
         <h2>性格・特徴</h2>
         <p><%= @child.personality %></p>
         
-        <%= link_to '投稿ページに行く', new_post_path(current_user) %>
+        <%= link_to '投稿ページに行く', new_post_path(@child.id) %>
       </div>
     </div>  
 </div>

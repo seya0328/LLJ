@@ -40,9 +40,9 @@
     <tbody>
     <% @posts.each do |pst| %>
     <tr><%#= link_to show_post_path(@child,pst.id) do %>
-      <td><%=link_to pst.date, show_post_path(@child,pst.id) %></td>
-      <td><%=link_to pst.title, show_post_path(@child,pst.id) %></td>
-      <td><%=link_to pst.tag_list.join(','), show_post_path(@child,pst.id) %></td>
+      <td><%=link_to pst.date, show_post_path(@children,pst.id) %></td>
+      <td><%=link_to pst.title, show_post_path(@children,pst.id) %></td>
+      <td><%=link_to pst.tag_list.join(','), show_post_path(@children,pst.id) %></td>
       <td><%#= pst.tags.first&.name %></td>
       <td><%#= tag_list.name %></td>
       <td><%#= pst.text_field :tag_list, value: pst.tag_list.join(','), class: 'form-control' %><td>
