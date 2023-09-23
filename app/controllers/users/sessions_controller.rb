@@ -2,8 +2,8 @@
 
 class Users::SessionsController < Devise::SessionsController
   before_action :configure_permitted_parameters, if: :devise_controller?
-  # before_action :configure_sign_in_params, only: [:create]
-  #before_action :users_state, only: [:create]
+  # before_actionz :configure_sign_in_params, only: [:create]
+  #before_action:users_state, only: [:create]
   def after_sign_in_path_for(resource)
     user_path(resource)
   end

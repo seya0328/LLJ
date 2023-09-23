@@ -15,12 +15,12 @@
           <div class="row">
             <div class="col-lg-4">
             <h6>性別</h6>
-            <%= form_with(model: @user, local: true) do |form| %>
-              <%= form.radio_button :gender, :male %>
-              <%= form.label :gender, "男性", {value: :male, style: "display: inline-block;"} %>
-              <%= form.radio_button :gender, :female %>
-              <%= form.label :gender, "女性", {value: :female, style: "display: inline-block;"} %>
-            <% end %>
+            <%#= form_with(model: @user, local: true) do |form| %>
+              <%= f.radio_button :gender, :male %>
+              <%= f.label :gender, "男性", {value: :male, style: "display: inline-block;"} %>
+              <%= f.radio_button :gender, :female %>
+              <%= f.label :gender, "女性", {value: :female, style: "display: inline-block;"} %>
+            <%# end %>
             </div>
           </div><br>
           
