@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
+  #devise_for :users
   devise_for :users,skip: [:passwords], controllers: {
-  registrations: "users/registrations",
-  sessions: 'users/sessions'
-}
+    registrations: "users/registrations",
+    sessions: 'users/sessions'
+  }
   
   namespace :admin do
     get "/" => "homes#top"
@@ -14,9 +15,6 @@ Rails.application.routes.draw do
   end
   namespace :admin do
     get 'post_comments/show'
-  end
-  namespace :admin do
-    get 'homes/top'
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -36,10 +34,11 @@ Rails.application.routes.draw do
       # resources :post_comments, only: [:create, :destroy]
   end
   resources :users do
-  member do
-    get :likes
+    member do
+      get :likes
+    end
   end
-end
+  
   get '/users/:user_id/check' => 'users#check', as: 'check'
   patch  '/users/:user_id/withdraw' => 'users#withdraw'
   get '/children/:id/posts/new' => 'posts#new', as: 'new_post'
