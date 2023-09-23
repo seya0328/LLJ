@@ -43,6 +43,7 @@
             <%= f.submit "送信する" %>
           <% end %>
         </div>
+        <div>
         <% @post.post_comments.each do |post_comment| %>
           <p><%#= image_tag post_comment.user.get_profile_image(100,100) %></p>
           <%#= post_comment.user.name %>
@@ -70,4 +71,4 @@
     </div>
   </div>
 </div>
-<% end %>
+      <% end %>

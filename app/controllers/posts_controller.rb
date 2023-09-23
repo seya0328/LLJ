@@ -32,9 +32,9 @@ class PostsController < ApplicationController
   end
   
   def show
-     @post = Post.find(params[:id]) 
-     @child = @post.child
-     @post_comment = PostComment.new
+    @post = Post.find(params[:id]) 
+    @child = @post.child
+    @post_comment = PostComment.new
   end
 
   def update
