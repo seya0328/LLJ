@@ -45,7 +45,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
   # end
   def after_sign_up_path_for(resource)
-    byebug
     user_path(resource)
   end
   protected

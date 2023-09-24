@@ -13,7 +13,7 @@
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <a class="navbar-brand p-3" href="/"><h1>L L J</h1></a>
+          <a class="navbar-brand p-3" href="/"><h1>Little Life Journey</h1></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -50,7 +50,7 @@
     </header>
     <main>
     <%#= user_signed_in? %>  
-    <%#= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <%= yield %>
     </main>
   </body>
