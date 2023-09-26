@@ -5,32 +5,48 @@
       
       <% if @post.errors.any? %>
       <%= @post.errors.count %>error prohibited this obj from being saved:
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+        <ul>
+        <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+        </ul>
       <% end %>
-      </ul>
-      <% end %>
-      
+      <!-- 投稿名・投稿内容 ・画像・タグ-->
       <%= form_with model: @post do |f| %>
       
-      <h4>タイトル</h4>
-      <P><%= @post.title %></P>
+        <h4>タイトル</h4>
+        <P><%= @post.title %></P>
     
-      <h4>内容</h4>
-      <p><%= @post.content %></p><br>
+        <h4>内容</h4>
+        <p><%= @post.content %></p><br>
       
-      <p>画像</p>
-      <%= image_tag @post.get_profile_image(300, 300) %><br>
-      <br>
-      <%= link_to '戻る', user_path(current_user), class: "btn btn-success" %>
+        <p>画像</p>
+        <%= image_tag @post.get_profile_image(300, 300) %><br>
+        <br>
+        <%= link_to '戻る', user_path(current_user), class: "btn btn-success" %>
       
-      <p>タグ</p>
-      <%= @post.tag_list.join(',') %><br>
-      <br>
+        <p>タグ</p>
+        <%= @post.tag_list.join(',') %><br>
+        <br>
+      
+      
      
+      
+      <!-- いいね！ボタン -->
+        <br>
+      <% if @post.favorited_by?(current_user) %>
+        <p>
+    　     <%= link_to post_favorites_path(@post), method: :delete do %>
+          ♥<%= @post.favorites.count %> いいね
+          <% end %>
+        </p>
+      <% else %>
+        <p>
+        <%= link_to post_favorites_path(@post), method: :post do %>
+        ♡<%= @post.favorites.count %> いいね
+        <% end %>
       <% end %>
-      <br>
+      <% end %>
       <%= link_to "編集する", edit_post_path(@post.id) %>
       
       <%= link_to "削除する", delete_children_post_path(@child, @post), method: :delete, data: {confirm: "本当に削除しますか？"} %>
@@ -52,18 +68,7 @@
             <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %>
           <% end %>
           
-          <% if @post.favorited_by?(current_user) %>
-          <p>
-          <%= link_to post_favorites_path(@post), method: :delete do %>
-          ♥<%= @post.favorites.count %> いいね
-          <% end %>
-          </p>
-          <% else %>
-          <p>
-          <%= link_to post_favorites_path(@post), method: :post do %>
-          ♡<%= @post.favorites.count %> いいね
-          <% end %>
-        </p>
+          
         <% end %>
       </div>
       
@@ -71,4 +76,4 @@
     </div>
   </div>
 </div>
-      <% end %>
+     
