@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
-  #devise_for :users
   devise_for :users,skip: [:passwords], controllers: {
     registrations: "users/registrations",
     sessions: 'users/sessions'
@@ -12,9 +11,10 @@ Rails.application.routes.draw do
     get "/" => "homes#top"
     get 'users/index'
     get 'users/show'
-  end
-  namespace :admin do
     get 'post_comments/show'
+  # end
+  # namespace :admin do
+    # get 'post_comments/show'
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -25,7 +25,10 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
   end
-  resources :users, only: [:new, :create, :show, :edit, :update, :destroy] do
+  
+  delete '/users/check' => 'users#check', as: 'check'
+  patch  '/users/withdraw' => 'users#withdraw'
+  resources :users, only: [:new, :create, :show, :edit, :update] do
     member do
       get :search
     end
@@ -35,12 +38,11 @@ Rails.application.routes.draw do
   end
   resources :users do
     member do
-      get :likes
+      get :favorites
     end
   end
   
-  get '/users/:user_id/check' => 'users#check', as: 'check'
-  patch  '/users/:user_id/withdraw' => 'users#withdraw'
+
   get '/children/:id/posts/new' => 'posts#new', as: 'new_post'
   post 'children/:id/posts' => 'posts#create',as: 'children_post'
   delete 'childen/:id/posts/:post_id' => 'posts#destroy',as: 'delete_children_post'

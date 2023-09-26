@@ -39,7 +39,7 @@
             </li>
             
             <li class="nav-item">
-              <%= link_to "ログアウト", check_path(current_user.id),method: :delete, class: 'nav-link text-dark border border-dark rounded' %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark border border-dark rounded' %>
             </li>
             <!--＃管理者でも会員でもない人が見るヘッダーなし-->
             <% end %>            
@@ -50,7 +50,7 @@
     </header>
     <main>
     <%#= user_signed_in? %>  
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <%#= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <%= yield %>
     </main>
   </body>
