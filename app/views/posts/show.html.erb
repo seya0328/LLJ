@@ -17,9 +17,9 @@
         <h4>タイトル</h4>
         <P><%= @post.title %></P>
         
-        <p>画像</p>
-        <%= image_tag @post.get_profile_image(200,200) %><br>
-    
+        <p>
+        <%= image_tag @post.get_profile_image(400,400) %><br>
+        </p>
         <h4>内容</h4>
         <p><%= @post.content %></p><br>
         

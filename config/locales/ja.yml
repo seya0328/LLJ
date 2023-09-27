@@ -1,6 +1,7 @@
 ja:
-  enums:
-    child:
-      gender:
-        male: "男の子"
-        female: "女の子"
+  activerecord:
+    models:
+      child:
+        gender:
+          male: "男の子"
+          female: "女の子"
