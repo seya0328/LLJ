@@ -3,25 +3,25 @@
     <div class="row">
       <div class="col-6">
        <% if @child.profile_image.attached? %>
-        <%= image_tag @child.profile_image, size: "200x200" %>
+        <%= image_tag @child.profile_image, size: "300x300" %>
         <% else %>
           <%= image_tag 'no_image', size: "200x200" %>
         <% end %>
       </div>
       <div class="col-6">
-        <h2>名前</h2>
+        <h3>名前</h3>
         <p><%= @child.name %></p>
         
-        <h2>カナ</h2>
+        <h3>カナ</h3>
         <p><%= @child.name_kana %></p>
         
-        <h2>誕生日</h2>
+        <h3>誕生日</h3>
         <p><%= @child.birthday %></p>
         
-        <h2>性別</h2>
+        <h3>性別</h3>
         <p><%= @child.gender %></p>
         
-        <h2>性格・特徴</h2>
+        <h3>性格・特徴</h3>
         <p><%= @child.personality %></p>
         
         <%= link_to '投稿ページに行く', new_post_path(@child.id) %>
