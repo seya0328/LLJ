@@ -23,11 +23,11 @@
             <!--#管理者が見るページ-->
             <% if admin_signed_in? %>
             <li class="nav-item">
-              <%= link_to "会員一覧", admin_users_index_path, class: 'nav-link text-dark border border-dark rounded mr-5' %>
+              <%= link_to "会員一覧", admin_path, class: 'nav-link text-dark border border-dark rounded mr-5' %>
             </li>
             <li class="nav-item"> 
             <!--admin/posts/comment/index作ったらroot_patth直す-->
-              <%= link_to "コメント履歴一覧", root_path, class: 'nav-link text-dark border border-dark rounded mr-5' %>
+              <%= link_to "コメント履歴一覧", admin_post_comments_show_path, class: 'nav-link text-dark border border-dark rounded mr-5' %>
             </li>
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_admin_session_path,method: :delete, class: 'nav-link text-dark border border-dark rounded' %>

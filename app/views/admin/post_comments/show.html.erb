@@ -13,7 +13,7 @@
       　   <tr>
             <td><%= link_to comment.created_at.to_time.strftime("%Y/%m/%d %H:%M:%S"),  admin_post_comments_show_path %></td>
             <td><%= comment %></td>
-            <td><%= link_to "削除する", admin_post_comments_show_path(@book),class: "btn btn-sm btn-danger", method: :delete,"data-confirm" => "本当に削除しますか？"%></td>
+            <td><%= link_to "削除する", admin_post_comments_show_path,class: "btn btn-sm btn-danger", method: :delete,"data-confirm" => "本当に削除しますか？"%></td>
 　        </tr>
 　      <% end %>
       </tbody>

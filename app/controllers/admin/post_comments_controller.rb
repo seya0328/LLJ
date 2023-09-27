@@ -1,6 +1,6 @@
 class Admin::PostCommentsController < ApplicationController
   def show
-    @comment = Post_comment.find(params[:id])
+    @comment = Post_comments.find(params[:id])
     @user = @comment.user
     @post_comments = @comment.all
   end

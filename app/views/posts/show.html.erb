@@ -16,12 +16,13 @@
       
         <h4>タイトル</h4>
         <P><%= @post.title %></P>
+        
+        <p>画像</p>
+        <%= image_tag @post.get_profile_image(800,800) %><br>
     
         <h4>内容</h4>
         <p><%= @post.content %></p><br>
-      
-        <p>画像</p>
-        <%= image_tag @post.get_profile_image(300, 300) %><br>
+        
         <br>
         <%= link_to '戻る', user_path(current_user), class: "btn btn-success" %>
       
@@ -55,7 +56,7 @@
         <p>コメント件数：<%= @post.post_comments.count %></p>
         <div>
           <%= form_with model: [@post, @post_comment] do |f| %>
-            <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+            <%= f.text_field :comment, rows: '5', placeholder: "コメントをここに" %>
             <%= f.submit "送信する" %>
           <% end %>
         </div>
