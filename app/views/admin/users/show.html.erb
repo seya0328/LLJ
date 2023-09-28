@@ -17,35 +17,11 @@
 　            <% else %> 
 　            退会
 　            <% end %></td>
-          </table>
-          <div class="container">
-  <h4>コメント一覧</h4>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>日時</th>
-          <th>コメント内容</th>
-        </tr>
-      </thead>
-          
-      <tbody>
-        <% @post_comments.each do |comment| %>
-      　   <tr>
-            <td><%= link_to comment.created_at.to_time.strftime("%Y/%m/%d %H:%M:%S"),  admin_post_comments_show_path %></td>
-            <td><%= comment %></td>
-            <td><%= link_to "削除する", admin_post_comments_show_path,class: "btn btn-sm btn-danger", method: :delete,"data-confirm" => "本当に削除しますか？"%></td>
-　        </tr>
-　      <% end %>
-      </tbody>
-    </table>
-  </div>
+        </table>
+ 
 
           <%#= link_to "編集する", edit_admin_customer_path(@customer.id) %>
-          <%#= link_to "注文履歴一覧を見る", admin_path(@customer.id) %>
+          <%= link_to "コメント履歴一覧を見る", root_path(@user.id) %>
       </div>
     </div>
 </div>
-
-
-
-<h4>コメント一覧</h4>
