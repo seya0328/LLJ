@@ -5,6 +5,7 @@ class Admin::UsersController < ApplicationController
 
   def show
     @users = User.find(params[:id])
+    #@post_comments = PostComment.all(current_user)
   end
   
   private
