@@ -3,7 +3,7 @@ class Child < ApplicationRecord
   has_many :posts
   has_one_attached :profile_image
   # validates :title, presence: true
-  # enum gender: {"male": "male", "female": "female"}
+  enum gender: { male: 0, female: 1 }
   
   def get_profile_image(width, height)
     unless profile_image.attached?

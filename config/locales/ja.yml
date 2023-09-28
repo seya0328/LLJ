@@ -5,3 +5,8 @@ ja:
         gender:
           male: "男の子"
           female: "女の子"
+  enums:
+    child:
+      gender:
+        male: "男の子"
+        female: "女の子"

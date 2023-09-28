@@ -21,8 +21,8 @@ class User < ApplicationRecord
   # def active_for_authentication?
     # super && (is_deleted == false)
   # end
-  def full_name(user)
-     user.last_name + user.first_name
+  def full_name
+    last_name + first_name
   end
   
     # is_deletedがfalseならtrueを返すようにしている

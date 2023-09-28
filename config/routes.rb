@@ -9,12 +9,10 @@ Rails.application.routes.draw do
   
   namespace :admin do
     get "/" => "homes#top"
-    get 'users/index'
-    get 'users/show'
-    get 'post_comments/show'
-  # end
-  # namespace :admin do
-    # get 'post_comments/show'
+    resources :users, only: [:index, :show] do
+      resources :post_comments, only: [:index, :destroy]
+    end
+  
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
