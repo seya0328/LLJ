@@ -24,7 +24,7 @@
         <p><%= @post.content %></p><br>
         
         <br>
-        <%= link_to '戻る', user_path(current_user), class: "btn btn-success" %>
+        
       
         <p>タグ</p>
         <%= @post.tag_list.join(',') %><br>
@@ -72,7 +72,7 @@
           
         <% end %>
       </div>
-      
+      <%= link_to '戻る', user_path(current_user), class: "btn btn-success" %>
       
     </div>
   </div>

@@ -11,9 +11,9 @@
       <tbody>
         <% @post_comments.each do |comment| %>
       　   <tr>
-            <td><%= comment.user.created_at.to_time.strftime("%Y/%m/%d %H:%M:%S") %></td>
+            <td><%= comment.created_at.to_time.strftime("%Y/%m/%d %H:%M:%S") %></td>
             <td><%= comment.comment %></td>
-            <td><%= link_to "削除する", admin_user_post_comments_path(comment),class: "btn btn-sm btn-danger", method: :delete,"data-confirm" => "本当に削除しますか？"%></td>
+            <td><%= link_to "削除する", admin_user_post_comment_path(comment.user.id, comment),class: "btn btn-sm btn-danger", method: :delete,"data-confirm" => "本当に削除しますか？"%></td>
 　        </tr>
 　      <% end %>
       </tbody>

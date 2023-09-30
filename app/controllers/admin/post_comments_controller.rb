@@ -6,6 +6,6 @@ class Admin::PostCommentsController < ApplicationController
   def destroy
     comment = PostComment.find(params[:id])
     comment.destroy
-    redirect_to :back
+    redirect_to admin_user_post_comments_path(params[:user_id])
   end
 end
