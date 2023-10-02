@@ -5,7 +5,7 @@ class FavoritesController < ApplicationController
     @child = @post.child
     @favorite = current_user.favorites.new(post_id: @post.id)
     @favorite.save
-    redirect_to show_post_path(@child,@post)
+    redirect_to post_path(@post)
   end
 
   def destroy
@@ -13,7 +13,7 @@ class FavoritesController < ApplicationController
     @child = @post.child
     @favorite = current_user.favorites.find_by(post_id: @post.id)
     @favorite.save
-    redirect_to show_post_path(@child,@post)
+    redirect_to post_path(@post)
   end
   
 end

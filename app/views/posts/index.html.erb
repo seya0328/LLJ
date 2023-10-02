@@ -1,23 +1,18 @@
-<!--<div class="cover-show">-->
-<!--  <div class="container">-->
-<!--    <div class="row justify-content-center">-->
-<!--      <h1 class="font-weight-normal mt-5 mb-5">投稿一覧画面</h1>-->
 <div class="container px-5 px-sm-0">
-  <h2>商品一覧</h2>
+  <h2>投稿一覧画面</h2>
   <div class="row">
     <tbody>
       <% @posts.each do |post| %>
         <div class="col-4">
         <%= post.date %>
-        <%= link_to post.title, show_post_path(child.id,post.id) do %>
-        <p><%= link_to image_tag post.image, size: "200x200" %></p>
+        <%= link_to post_path(post.id) do %>
+          <%= post.title %>
+          <p><%= image_tag post.image, size: "200x200" %></p>
         <% end %>
-        <p><%#= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p>
+        
         </div>
       <% end %>
     </tbody>
-      
     </div>
-  </div>
   <%= paginate @posts %>
 </div>      
