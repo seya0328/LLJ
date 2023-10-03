@@ -6,8 +6,8 @@
     <div class="row justify-content-center d-block">
     <div class="row">
       <div class="col-6">
-       <% if @child.profile_image.attached? %>
-        <%= image_tag @child.profile_image, size: "300x300" %>
+        <% if @child.profile_image.attached? %>
+          <%= image_tag @child.profile_image, size: "300x300" %>
         <% else %>
           <%= image_tag 'no_image', size: "200x200" %>
         <% end %>
@@ -30,6 +30,7 @@
         
         <%= link_to '投稿する', new_post_path(@child.id), class: "btn btn-warning" %>
         <%= link_to '投稿一覧', posts_path, class: "btn btn-info" %>
+        <%= link_to '編集する', edit_user_child_path(current_user,@child.id), class: "btn btn-secondary" %>
       </div>
     </div>  
     </div>
