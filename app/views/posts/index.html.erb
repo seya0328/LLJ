@@ -4,10 +4,11 @@
     <tbody>
       <% @posts.each do |post| %>
         <div class="col-4">
+        <p><%= image_tag post.image, size: "200x200" %></p>
         <%= post.date %>
         <%= link_to post_path(post.id) do %>
           <%= post.title %>
-          <p><%= image_tag post.image, size: "200x200" %></p>
+          <!--<p><%#= image_tag post.image, size: "200x200" %></p>-->
         <% end %>
         
         </div>

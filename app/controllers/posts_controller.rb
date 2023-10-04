@@ -26,8 +26,11 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.page(params[:page]).per(5)
+    #そのchildの投稿一覧を表示させたい
+    # @child =Child.find(params[:child_id])
     @post = Post.new
+    @posts = Post.all.page(params[:page]).per(5)
+    # @post = Post.new
     
   end
   

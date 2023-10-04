@@ -1,34 +1,47 @@
-<h1>子供のプロフィール編集</h1>
-<%= form_with model: @child, url: user_child_path(current_user,@child), methood: :patch do |f| %>
-  <h4>名前</h4>
-  <%= f.text_field :name %>
-  
-  <h4>カナ</h4>
-  <%= f.text_field :name_kana %>
-  
-  <h4>誕生日</h4>
-  <%= f.text_field :birthday %>
-  
-  <h4>性別</h4>
-  <%= form_with(model: @child, local: true) do |form| %>
-    <%= form.radio_button :gender, :male %>
-    <%= form.label :gender, "男の子", {value: :male, style: "display: inline-block;"} %>
-    <%= form.radio_button :gender, :female %>
-    <%= form.label :gender, "女の子", {value: :female, style: "display: inline-block;"} %>
-  <% end %>
-  
-	
-  <h4>性格・特徴</h4>
-  <%= f.text_area :personality %>
-  
-  <h4>画像</h4>
-  <%= f.file_field :profile_image, accept: "image/*" %>
-  <%# if post.image.attached? %>
-  <%#= image_tag post.image, size: "200x200" %>
-  <%#else %>
-    <%#= image_tag 'no_image', size: "200x200" %>
-  <%# end %>
-  
-	
-  <%= f.submit '登録する', class: "btn btn-success" %>
-<% end %>
+<div class="cover-show">
+  <div class="container">
+    <div class="row justify-content-center">
+      <h1 class="font-weight-normal mt-5 mb-5">子供のプロフィール編集</h1>
+    </div>
+    <div class="row justify-content-center d-block">
+    <div class="row">
+      <div class="col-6">
+
+    <%= form_with model: @child, url: user_child_path(current_user,@child), methood: :patch do |f| %>
+      <h4>名前</h4>
+      <%= f.text_field :name %>
+      
+      <h4>カナ</h4>
+      <%= f.text_field :name_kana %>
+      
+      <h4>誕生日</h4>
+      <%= f.text_field :birthday %>
+      
+      <h4>性別</h4>
+      <%#= form_with(model: @child, local: true) do |form| %>
+        <%= f.radio_button :gender, :male %>
+        <%= f.label :gender, "男の子", {value: :male, style: "display: inline-block;"} %>
+        <%= f.radio_button :gender, :female %>
+        <%= f.label :gender, "女の子", {value: :female, style: "display: inline-block;"} %>
+      <%# end %>
+      
+    	
+      <h4>性格・特徴</h4>
+      <%= f.text_area :personality %>
+      
+      <h4>画像</h4>
+      <%= f.file_field :profile_image, accept: "image/*" %>
+      <%# if post.image.attached? %>
+      <%#= image_tag post.image, size: "200x200" %>
+      <%#else %>
+        <%#= image_tag 'no_image', size: "200x200" %>
+      <%# end %>
+      
+    	
+      <%= f.submit '登録する', class: "btn btn-success" %>
+    <% end %>
+      </div>
+    </div>  
+    </div>
+  </div>
+</div>

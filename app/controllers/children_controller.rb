@@ -32,6 +32,7 @@ class ChildrenController < ApplicationController
     @child = Child.find(params[:id])
     if @child.update(child_params)
     flash[:notice] = "更新しました。"
+    
     redirect_to user_child_path(current_user,@child.id)
     else
       render :edit
