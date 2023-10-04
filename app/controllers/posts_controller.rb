@@ -27,10 +27,12 @@ class PostsController < ApplicationController
 
   def index
     #そのchildの投稿一覧を表示させたい
-    # @child =Child.find(params[:child_id])
+    # binding.pry
+    @child = Child.find(params[:child_id])
+    @posts = @child.posts.page(params[:page]).per(5)
     @post = Post.new
-    @posts = Post.all.page(params[:page]).per(5)
-    # @post = Post.new
+    # @posts = Post.all.page(params[:page]).per(5)
+    
     
   end
   
