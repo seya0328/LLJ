@@ -10,8 +10,6 @@ class UsersController < ApplicationController
   def show
      @user = User.find(params[:id])
      @posts = @user.posts.page(params[:page]).per(5)
-     @chilren = Child.all
-     @new_child = Child.new
      @tags = PostTag.all
      #@favorites = Post.where()
     # @post = Post.all.post(created_at: :desc).limit(4)
@@ -29,9 +27,7 @@ class UsersController < ApplicationController
       posts = @user.posts
     end
     @posts = posts.page(params[:page]).per(5)
-    @chilren = Child.all
-    @child = Child.new
-    @child = Child.find(params[:cid]) 
+    
     @tags = PostTag.all
     render :show
   end
