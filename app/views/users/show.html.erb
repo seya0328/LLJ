@@ -8,11 +8,12 @@
     
     <%= form_with url: search_user_path(@user.id), method: :get, local: true do |f| %>
       <%= f.text_field :keyword %>
-      <%= f.submit "キーワード検索", class: "btn btn-success btn-sm" %>
+      <%= f.submit "キーワード検索", class: "btn btn-secondary btn-sm" %>
     <% end %>
+    <br>
     <%= form_with url: search_user_path(@user.id), method: :get, local: true do |f| %>
       <%= f.text_field :tag %>
-      <%= f.submit "タグ検索", class: "btn btn-warning btn-sm" %>
+      <%= f.submit "タグ検索", class: "btn btn-secondary btn-sm" %>
     <% end %>
     </div>
   </div>
@@ -31,7 +32,7 @@
         <p><%= link_to child.name, user_child_path(current_user,child.id) %></p>
         </div>
       <% end %>
-      <p><%= link_to '＋追加',new_user_child_path(current_user), class: "btn btn-secondary " %></p><br>
+      <p><%= link_to '＋追加',new_user_child_path(current_user), class: "btn btn-success" %></p><br>
     </div> 
   </div> 
       
@@ -55,7 +56,7 @@
           <tr><%#= link_to show_post_path(@child,pst.id) do %>
             <td><%=link_to pst.date, post_path(pst.id) %></td>
             <td><%=link_to pst.title, post_path(pst.id) %></td>
-            <td><%= render 'users/favorite', post: pst %></td>
+            <td style="color: red;">♥<%= pst.favorites.count %></td>
             <td><%=link_to pst.tag_list.join(','), post_path(pst.id) %></td>
           </tr>
           <% end %>
@@ -66,7 +67,7 @@
         
            <%= paginate @posts %>
           
-          <%= link_to '退会',check_path, method: :delete, class: "btn btn-outline-secondary" %>  
+          <%= link_to '退会',check_path, method: :delete, class: "btn btn-danger" %>  
           
     
       

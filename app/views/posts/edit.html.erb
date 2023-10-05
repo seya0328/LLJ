@@ -12,27 +12,30 @@
       <% end %>
       </ul>
       <% end %>
-      
-      <%= form_with model: @post do |f| %>
-      <h4>タイトル</h4>
-      <%= f.text_field :title %><br>
-      
-      <p>
-      <%= image_tag @post.get_profile_image(300, 300) %>
-      </p>
-      
-      <h4>内容</h4>
-      <%= f.text_area :content %><br>
-      
-      <h4>タグ</h4>
-      <%= f.text_field :tag_list %><br>
-      
-      <%= f.submit '変更する', class: "btn btn-success" %>
-     
-      <% end %>
-      <br>
-      <%= link_to "戻る", post_path(@post.id) %>
-      
+      <div class="row">
+        <div class="col-6">
+        <p>
+        <%= image_tag @post.get_profile_image(400, 400) %>
+        </p>
+        </div>
+        <div class="col-6">
+        <%= form_with model: @post do |f| %>
+        <h4>タイトル</h4>
+        <%= f.text_field :title %><br>
+        
+        <h4>内容</h4>
+        <%= f.text_area :content %><br>
+        
+        <h4>タグ</h4>
+        <%= f.text_field :tag_list %><br>
+        <br>
+        <p>
+        <%= f.submit '変更する', class: "btn btn-success" %>
+        </p>
+        <% end %>
+        <br>
+        <%= link_to "戻る", post_path(@post.id) %>
+      </div>  
     </div>
   </div>
 </div>

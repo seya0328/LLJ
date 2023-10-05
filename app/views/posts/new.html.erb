@@ -14,9 +14,11 @@
       <h4>タグ</h4>
       <%= f.text_field :tag_list %>
 
-    
-    	<% link_to '戻る', user_child_path(current_user), class: "btn btn-success" %>
-      <%= f.submit '投稿する' %>
+      <br>
+      <br>
+    	<%= link_to '戻る', user_child_path(current_user), class: "btn btn-primary" %>
+      <%= f.submit '投稿する', class: "btn btn-success" %>
     <% end %>
+    
   </div>
 </div>

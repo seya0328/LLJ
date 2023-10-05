@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     @posts = posts.page(params[:page]).per(5)
     @chilren = Child.all
     @child = Child.new
-    @child = Child.find(params[:id]) 
+    @child = Child.find(params[:cid]) 
     @tags = PostTag.all
     render :show
   end
