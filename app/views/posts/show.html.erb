@@ -21,6 +21,8 @@
       </div>
       <div class="col-6">
       <%= form_with model: @post do |f| %>
+        <h4>日付</h4>
+        <P><%= @post.date %></P>    
         <h4>タイトル</h4>
         <P><%= @post.title %></P>
 

@@ -21,13 +21,14 @@
   
   <div class="container px-5 px-sm-0">
     <h2>My children</h2>
+    <br>
     <div class="row">
     <!--<div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">-->
       <% @user.children.each do |child| %>
         <div class="col-3">
         <%= link_to user_child_path(current_user,child.id) do %>
         <!--<div>-->
-        <%= image_tag child.get_profile_image(100,100) %><br>
+        <%= image_tag child.get_profile_image(200,200) %><br>
         <% end %>
         <p><%= link_to child.name, user_child_path(current_user,child.id) %></p>
         </div>
