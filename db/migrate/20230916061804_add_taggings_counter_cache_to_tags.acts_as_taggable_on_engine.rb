@@ -11,7 +11,7 @@ class AddTaggingsCounterCacheToTags < ActiveRecord::Migration[6.0]
     end
   end
 
-  def self.down
-    remove_column ActsAsTaggableOn.tags_table, :taggings_count
-  end
+  # def self.down
+  #   remove_column ActsAsTaggableOn.tags_table, :taggings_count
+  # end
 end
