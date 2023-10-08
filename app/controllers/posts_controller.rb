@@ -10,7 +10,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.child_id = params[:id]
-
+    
+    pp @post
+    pp post_params
+    
     if @post.save
       # tag = Tag.find_or_create_by(name: params[:post][:tag])
       # PostTag.create!(tag: tag, post: @post)
