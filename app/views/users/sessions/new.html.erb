@@ -6,29 +6,30 @@
       
         <div class="row", style='margin: 0 auto;'></div> 
           <div class="row">
-          <div class="col"></div>
+            <!--<div class="col"></div>-->
             <div class="col-6">
               <p style="text-align: center;">
-                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <div class="field">
-                <%= f.label :email, "メールアドレス" %>
-                <%= f.email_field :email, autofocus: true, autocomplete: "e-mail" %>
-              </div>
-              <br>
-              <div class="field">
-                <%= f.label :password, "パスワード" %>
-                <%= f.password_field :password, autocomplete: "current-password" %>
-              </div>
-              <br>
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class="field">
+                  <%= f.label :email, "メールアドレス" %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "e-mail" %>
+                </div>
+                <br>
+                <div class="field">
+                  <%= f.label :password, "パスワード" %>
+                  <%= f.password_field :password, autocomplete: "current-password" %>
+                </div>
+                <br>
 
-            <div class="actions">
-              <%= f.submit "ログイン", class: 'btn btn-warning' %>
-          </div>
+                <div class="actions">
+                  <%= f.submit "ログイン", class: 'btn btn-warning' %>
+                </div>
               <% end %>
-
+              <br>
+              <%= link_to "戻る", root_path, class: "btn btn-primary" %>
           <%#= render "devise/shared/links" %>
-      </div>
+            </div>
       
-    <div class="col"></div>
+      </div>
   </div>
 </div>
