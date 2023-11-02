@@ -1,0 +1,11 @@
+rails c で処理を実行する事でデータを削除出来る。
+
+User.all.destroy_all # ユーザーの全削除
+モデル名.all.destroy_all # そのモデルのデータ削除(dependent: :destroy で指定がある場合はそちらも合わせて削除)
+
+Userを削除すると、childrenとpostsとpost_commentsとfavoritesが合わせて削除される
+
+
+User.find(1).destory
+
+<td><%#= render 'users/favorite', post: pst %></td>
